@@ -1,5 +1,6 @@
 function TaskTabs({ filter, setFilter }) {
     const tabs = ["all", "pending", "in-progress", "completed"];
+    const labels = { all: "All", pending: "Pending", "in-progress": "In Progress", completed: "Completed" };
 
     return (
         <div className="tabs">
@@ -9,7 +10,7 @@ function TaskTabs({ filter, setFilter }) {
                     className={filter === t ? "active" : ""}
                     onClick={() => setFilter(t)}
                 >
-                    {t}
+                    {labels[t]}
                 </button>
             ))}
         </div>
