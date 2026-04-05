@@ -1,38 +1,149 @@
-.App {
-  text-align: center;
+/* RESET */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f87171;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* MAIN GRID */
+.wrapper {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* CARD */
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* HEADER */
+.header {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* TABS */
+.tabs {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 10px 0;
+  gap: 5px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.tabs .active {
+  background: #444;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* TASK CARD */
+.task {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task:hover {
+  border: 1px solid orange;
+}
+
+/* STATUS BADGE */
+.badge {
+  display: inline-block;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.pending {
+  background: gray;
+}
+
+.in-progress {
+  background: orange;
+}
+
+.completed {
+  background: green;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 6px 10px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.secondary {
+  background: #ddd;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MODAL BOX */
+.modal-box {
+  background: white;
+  padding: 20px;
+  width: 320px;
+  border-radius: 8px;
+}
+
+/* FORM INPUTS */
+.modal-box input,
+.modal-box select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* CENTER (EMPTY / ERROR) */
+.center {
+  text-align: center;
+  padding: 40px;
+}
+
+/* LOADER SKELETON */
+.skeleton {
+  height: 10px;
+  background: #ddd;
+  margin: 8px 0;
+  border-radius: 4px;
 }
