@@ -12,7 +12,11 @@ import ErrorState from "./components/states/ErrorState";
 
 function App() {
   const [tasks, setTasks] = useState([]);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    const s = params.get("status");
+    return ["all", "pending", "in-progress", "completed"].includes(s) ? s : "all";
+  });
   const [showModal, setShowModal] = useState(false);
   const [editTask, setEditTask] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -34,6 +38,29 @@ function App() {
   useEffect(() => {
     document.title = "Task Manager";
     fetchTasks();
+  }, []);
+
+  // Update URL when filter changes
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (filter === "all") {
+      params.delete("status");
+    } else {
+      params.set("status", filter);
+    }
+    const newUrl = params.toString() ? `?${params.toString()}` : window.location.pathname;
+    window.history.pushState({}, "", newUrl);
+  }, [filter]);
+
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handlePopstate = () => {
+      const params = new URLSearchParams(window.location.search);
+      const s = params.get("status");
+      setFilter(["all", "pending", "in-progress", "completed"].includes(s) ? s : "all");
+    };
+    window.addEventListener("popstate", handlePopstate);
+    return () => window.removeEventListener("popstate", handlePopstate);
   }, []);
 
   const filtered =
