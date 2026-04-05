@@ -4,10 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors({
-    origin: process.env.CORS_ORIGIN || "*",
-    credentials: true
-}));
+app.use(cors()); // Allow all origins for easier initial deployment
 app.use(express.json());
 
 // DB
@@ -23,25 +20,46 @@ const Task = mongoose.model("Task", {
     createdAt: { type: Date, default: Date.now }
 });
 
+// Welcome Route
+app.get("/", (req, res) => {
+    res.json({ message: "Task Manager API is running!" });
+});
+
 // Routes
 app.get("/api/tasks", async (req, res) => {
-    const tasks = await Task.find();
-    res.json(tasks);
+    try {
+        const tasks = await Task.find();
+        res.json(tasks);
+    } catch (err) {
+        res.status(500).json({ error: "Failed to fetch tasks" });
+    }
 });
 
 app.post("/api/tasks", async (req, res) => {
-    const task = await Task.create(req.body);
-    res.json(task);
+    try {
+        const task = await Task.create(req.body);
+        res.json(task);
+    } catch (err) {
+        res.status(500).json({ error: "Failed to create task" });
+    }
 });
 
 app.put("/api/tasks/:id", async (req, res) => {
-    const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    res.json(task);
+    try {
+        const task = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.json(task);
+    } catch (err) {
+        res.status(500).json({ error: "Failed to update task" });
+    }
 });
 
 app.delete("/api/tasks/:id", async (req, res) => {
-    await Task.findByIdAndDelete(req.params.id);
-    res.json({ message: "Deleted" });
+    try {
+        await Task.findByIdAndDelete(req.params.id);
+        res.json({ message: "Deleted" });
+    } catch (err) {
+        res.status(500).json({ error: "Failed to delete task" });
+    }
 });
 
 const PORT = process.env.PORT || 5000;
