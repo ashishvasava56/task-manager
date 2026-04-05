@@ -161,8 +161,3 @@ Ahmedabad, India
 
 ---
 
-## 📌 Notes
-
-This project follows best practices for readability, modularity, and user-focused design, which are key principles for effective documentation and developer experience. ([GitHub Docs][1])
-
-[1]: https://docs.github.com/en/contributing/writing-for-github-docs/best-practices-for-github-docs?utm_source=chatgpt.com "Best practices for GitHub Docs"
