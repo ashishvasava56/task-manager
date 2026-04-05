@@ -126,15 +126,7 @@ Frontend will run on: `http://localhost:3000`
 
 ---
 
-## 🚀 Future Improvements
 
-* Add user authentication (JWT) and private task lists.
-* Implement drag-and-drop task reordering.
-* Add task priority levels (Low, Medium, High).
-* Implement due dates and calendar integration.
-* Add search functionality and pagination for large task lists.
-
----
 
 ## 🙌 Author
 
