@@ -6,16 +6,18 @@ function TaskFormModal({ isOpen, onClose, onSubmit, editTask }) {
     const [status, setStatus] = useState('pending');
 
     useEffect(() => {
-        if (editTask) {
-            setTitle(editTask.title);
-            setDescription(editTask.description);
-            setStatus(editTask.status);
-        } else {
-            setTitle('');
-            setDescription('');
-            setStatus('pending');
+        if (isOpen) {
+            if (editTask) {
+                setTitle(editTask.title || '');
+                setDescription(editTask.description || '');
+                setStatus(editTask.status || 'pending');
+            } else {
+                setTitle('');
+                setDescription('');
+                setStatus('pending');
+            }
         }
-    }, [editTask]);
+    }, [editTask, isOpen]);
 
     if (!isOpen) return null;
 
