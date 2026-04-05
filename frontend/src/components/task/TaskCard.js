@@ -9,9 +9,9 @@ function TaskCard({ task, onDelete, onEdit }) {
 
     return (
         <div className="task-item">
-            <div className="task-body">
-                <span className="task-title">{task.title}</span>
-                <span className="task-desc">{task.description}</span>
+            <div className="task-body" style={{ textAlign: "left", alignItems: "flex-start", width: "100%" }}>
+                <h3 className="task-title" style={{ textAlign: "left", margin: 0, width: "100%" }}>{task.title}</h3>
+                <p className="task-desc" style={{ textAlign: "left", margin: 0, width: "100%" }}>{task.description}</p>
             </div>
             <div className="task-right">
                 {badgeClass && <span className={badgeClass}>{badgeLabel}</span>}

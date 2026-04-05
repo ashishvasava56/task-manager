@@ -17,8 +17,16 @@
   .wrapper { padding: 16px 8px; }
   .card { border-radius: 6px; }
   .tabs button { padding: 6px 10px; font-size: 11px; }
-  .task-item { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .task-right { margin-left: 0; width: 100%; justify-content: flex-end; }
+  .task-item { flex-direction: column; align-items: stretch; gap: 12px; padding: 16px; }
+  .task-body { align-items: flex-start; text-align: left; }
+  .task-right { 
+    margin-left: 0; 
+    width: 100%; 
+    justify-content: flex-end; 
+    border-top: 1px solid #f3f4f6; 
+    padding-top: 12px;
+    margin-top: 4px;
+  }
 }
 
 /* ===== DASHBOARD CARD ===== */
@@ -124,20 +132,24 @@
 }
 
 .task-title {
+  display: block;
   font-size: 14px;
   font-weight: 700;
   color: #111827;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: left;
 }
 
 .task-desc {
+  display: block;
   color: #6b7280;
   font-size: 12.5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: left;
 }
 
 .task-right {
