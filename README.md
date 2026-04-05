@@ -8,30 +8,47 @@ The application follows clean architecture, modular components, and proper API i
 
 ---
 
+## 🌐 Live Demo
+
+🔗 https://task-manager-tan-iota.vercel.app/
+
+---
+
+## 🎥 Demo Video
+
+A walkthrough of the application demonstrating all features:
+
+🔗 https://your-video-link
+
+---
+
 ## ✨ Features
 
-* ✅ **Create & Manage Tasks**: Full CRUD operations for task management.
-* ✅ **Status Tracking**: Update tasks through `Pending`, `In Progress`, and `Completed` states.
-* ✅ **Professional URL Routing**: Filter views (`/all`, `/pending`, etc.) are reflected in the URL for easy navigation.
-* ✅ **Deep-Linked Modals**: The URL preserves modal states (`?modal=create`), allowing you to refresh without losing your work.
-* ✅ **Rich UI/UX**: Includes a sleek, responsive design with high-fidelity components.
-* ✅ **Content States**: Dedicated UI for **Loading (Skeleton)**, **Error**, and **Empty** states.
-* ✅ **Browser Navigation**: Fully supports "Back" and "Forward" browser buttons for all filters.
+* ✅ **Create & Manage Tasks**: Full CRUD operations for task management
+* ✅ **Status Tracking**: Update tasks through `Pending`, `In Progress`, and `Completed` states
+* ✅ **Professional URL Routing**: Filter views (`/all`, `/pending`, etc.) reflected in URL
+* ✅ **Deep-Linked Modals**: Modal states (`?modal=create`) preserved on refresh
+* ✅ **Rich UI/UX**: Clean, responsive UI based on Figma design
+* ✅ **Content States**: Loading (Skeleton), Error, and Empty states
+* ✅ **Browser Navigation**: Supports Back/Forward navigation
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-* **React.js**: Core UI library.
-* **React Router**: For advanced path-based routing and deep linking.
-* **Axios**: For API communication.
-* **Vanilla CSS**: Custom professional styling with a modern aesthetic.
+
+* React.js
+* React Router
+* Axios
+* Vanilla CSS
 
 ### Backend
-* **Node.js & Express.js**: RESTful API server.
-* **MongoDB (Mongoose)**: NoSQL database for flexible task storage.
-* **CORS & dotenv**: For secure communication and environment management.
+
+* Node.js
+* Express.js
+* MongoDB (Mongoose)
+* CORS & dotenv
 
 ---
 
@@ -41,15 +58,15 @@ The application follows clean architecture, modular components, and proper API i
 task-manager/
  ├── backend/
  │    ├── server.js         # API server & DB connection
- │    └── .env              # Environment secrets
+ │    └── .env              # Environment variables
  │
  ├── frontend/
- │    ├── public/           # Static assets
+ │    ├── public/
  │    ├── src/
- │    │    ├── components/  # Task, Layout, and State components
- │    │    ├── services/    # API abstraction (Axios)
- │    │    ├── App.js       # Root routing & state management
- │    │    └── index.css    # Global design tokens & styling
+ │    │    ├── components/
+ │    │    ├── services/
+ │    │    ├── App.js
+ │    │    └── index.css
 ```
 
 ---
@@ -85,7 +102,8 @@ Run backend:
 npx nodemon server.js
 ```
 
-Backend will run on: `http://localhost:5000`
+Backend will run on:
+http://localhost:5000
 
 ---
 
@@ -99,35 +117,52 @@ npm install
 npm start
 ```
 
-Frontend will run on: `http://localhost:3000`
+Frontend will run on:
+http://localhost:3000
 
 ---
 
 ## 🔗 API Endpoints
 
-| Method | Endpoint       | Description   |
-| ------ | -------------- | ------------- |
-| GET    | `/api/tasks`     | Get all tasks |
-| POST   | `/api/tasks`     | Create a new task |
-| PUT    | `/api/tasks/:id` | Update an existing task |
-| DELETE | `/api/tasks/:id` | Delete a task |
+| Method | Endpoint       | Description       |
+| ------ | -------------- | ----------------- |
+| GET    | /api/tasks     | Get all tasks     |
+| POST   | /api/tasks     | Create a new task |
+| PUT    | /api/tasks/:id | Update task       |
+| DELETE | /api/tasks/:id | Delete task       |
 
 ---
 
 ## ⚠️ Assumptions Made
 
-* **No Authentication**: The system is designed as a single-user dashboard (single global task list).
-* **Environment Configuration**: Assumes a valid MongoDB instance is available via the `MONGO_URI`.
-* **State Management**: Uses React state synchronized with URL parameters for high performance and shareability.
-* **Fixed Statuses**:
+* No authentication (single-user system)
+* MongoDB connection provided via `.env`
+* Fixed status values:
+
   * `pending`
   * `in-progress`
   * `completed`
+* Focus on clean UI and functionality over complex features
 
 ---
 
+## 🌐 Deployment
 
+* Frontend deployed on **Vercel**
+* Backend can be deployed on **Render**
+
+---
 
 ## 🙌 Author
 
 **Ashish Vasava**
+Full Stack Developer (MERN)
+Ahmedabad, India
+
+---
+
+## 📌 Notes
+
+This project follows best practices for readability, modularity, and user-focused design, which are key principles for effective documentation and developer experience. ([GitHub Docs][1])
+
+[1]: https://docs.github.com/en/contributing/writing-for-github-docs/best-practices-for-github-docs?utm_source=chatgpt.com "Best practices for GitHub Docs"
