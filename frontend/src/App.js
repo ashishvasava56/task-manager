@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { getTasks, createTask, deleteTask, updateTask } from "./services/api";
+import TaskCard from "./components/TaskCard";
+import TaskForm from "./components/TaskForm";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+
+  const fetchTasks = async () => {
+    const res = await getTasks();
+    setTasks(res.data);
+  };
+
+  useEffect(() => {
+    fetchTasks();
+  }, []);
+
+  const handleCreate = async (data) => {
+    await createTask(data);
+    fetchTasks();
+  };
+
+  const handleDelete = async (id) => {
+    await deleteTask(id);
+    fetchTasks();
+  };
+
+  const handleStatus = async (task) => {
+    const newStatus =
+      task.status === "pending" ? "completed" : "pending";
+    await updateTask(task._id, { status: newStatus });
+    fetchTasks();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Task Manager</h1>
+      <TaskForm onCreate={handleCreate} />
+
+      {tasks.map((task) => (
+        <TaskCard
+          key={task._id}
+          task={task}
+          onDelete={handleDelete}
+          onStatus={handleStatus}
+        />
+      ))}
     </div>
   );
 }
