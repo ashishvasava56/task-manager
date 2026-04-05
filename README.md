@@ -18,7 +18,7 @@ The application follows clean architecture, modular components, and proper API i
 
 A walkthrough of the application demonstrating all features:
 
-🔗 https://your-video-link
+🔗 https://drive.google.com/file/d/1u398H4z-48fY0SPTm1CyDvtvQe3n9XsH/view?usp=drive_link
 
 ---
 
